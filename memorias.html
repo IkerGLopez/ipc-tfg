@@ -1,45 +1,155 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Normativas</title>
+    <title>Consulta de Memorias</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body style="padding-top: 56px;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Universidad</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="inicio.html">Inicio</a>
+                        <a class="nav-link" href="index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="consulta-normativas.html">Consulta de Normativas</a>
+                        <a class="nav-link" href="normativas.html">Consulta de Normativas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="consulta-memorias.html">Consulta de Memorias de TFG</a>
+                        <a class="nav-link active" href="memorias.html">Consulta de Memorias de TFG</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="calendario.html">Calendario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="aboutUs.html">About Us</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-3">
+    <div class="container mt-4">
         <h1 class="text-center">Consulta de Memorias</h1>
-        <p class="text-center">Sección para consultar memorias.</p>
+        <p class="text-center">Filtra las memorias por especialidad, idioma y año.</p>
+
+        <!-- Formulario de Filtro -->
+        <form id="filterForm" class="mb-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="especialidad" class="form-label">Especialidad</label>
+                    <select class="form-select" id="especialidad">
+                        <option value="">Seleccionar Especialidad</option>
+                        <option value="Software">Ingeniería del Software</option>
+                        <option value="Hardware">Ingeniería de Computadores</option>
+                        <option value="Computación">Computación</option>
+                        <!-- Añadir más opciones según sea necesario -->
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="idioma" class="form-label">Idioma</label>
+                    <select class="form-select" id="idioma">
+                        <option value="">Seleccionar Idioma</option>
+                        <option value="Castellano">Castellano</option>
+                        <option value="Euskera">Euskera</option>
+                        <option value="Inglés">Inglés</option>
+                        <!-- Añadir más opciones según sea necesario -->
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="ano" class="form-label">Año</label>
+                    <select class="form-select" id="ano">
+                        <option value="">Seleccionar Año</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <!-- Añadir más años según sea necesario -->
+                    </select>
+                </div>
+            </div>
+        </form>
+
+        <!-- Tabla con datos filtrados -->
+        <table class="table table-bordered" id="memoriasTable">
+            <thead>
+                <tr>
+                    <th>Especialidad</th>
+                    <th>Idioma</th>
+                    <th>Año</th>
+                    <th>Título</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-especialidad="Software" data-idioma="Castellano" data-ano="2023">
+                    <td>Ingeniería del Software</td>
+                    <td>Castellano</td>
+                    <td>2023</td>
+                    <td>Memoria 1</td>
+                </tr>
+                <tr data-especialidad="Hardware" data-idioma="Inglés" data-ano="2022">
+                    <td>Ingeniería de Computadores</td>
+                    <td>Inglés</td>
+                    <td>2022</td>
+                    <td>Memoria 2</td>
+                </tr>
+                <tr data-especialidad="Computación" data-idioma="Euskera" data-ano="2021">
+                    <td>Computación</td>
+                    <td>Euskera</td>
+                    <td>2021</td>
+                    <td>Memoria 3</td>
+                </tr>
+                <!-- Añadir más filas según sea necesario -->
+            </tbody>
+        </table>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Filtrar las memorias cuando se cambien los valores de los filtros
+        document.getElementById('filterForm').addEventListener('change', function () {
+            // Obtener los valores seleccionados
+            var especialidad = document.getElementById('especialidad').value.toLowerCase();
+            var idioma = document.getElementById('idioma').value.toLowerCase();
+            var ano = document.getElementById('ano').value;
+
+            // Obtener todas las filas de la tabla
+            var rows = document.querySelectorAll('#memoriasTable tbody tr');
+
+            rows.forEach(function (row) {
+                var rowEspecialidad = row.getAttribute('data-especialidad').toLowerCase();
+                var rowIdioma = row.getAttribute('data-idioma').toLowerCase();
+                var rowAno = row.getAttribute('data-ano');
+
+                // Verificar si la fila cumple con los filtros
+                if ((especialidad === '' || rowEspecialidad.includes(especialidad)) &&
+                    (idioma === '' || rowIdioma.includes(idioma)) &&
+                    (ano === '' || rowAno === ano)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+    <!--  <footer class="bg-dark text-white text-center py-3 mt-4">
+        <p>&copy; 2024 Universidad. Todos los derechos reservados.</p>
+    </footer>    -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
