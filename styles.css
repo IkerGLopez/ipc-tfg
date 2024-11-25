@@ -44,3 +44,13 @@ p.text-center {
     color: white !important;
 }
 
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+

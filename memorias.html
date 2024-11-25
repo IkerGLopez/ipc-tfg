@@ -53,7 +53,6 @@
                         <option value="Software">Ingeniería del Software</option>
                         <option value="Hardware">Ingeniería de Computadores</option>
                         <option value="Computación">Computación</option>
-                        <!-- Añadir más opciones según sea necesario -->
                     </select>
                 </div>
                 <div class="col-md-4">
@@ -63,7 +62,6 @@
                         <option value="Castellano">Castellano</option>
                         <option value="Euskera">Euskera</option>
                         <option value="Inglés">Inglés</option>
-                        <!-- Añadir más opciones según sea necesario -->
                     </select>
                 </div>
                 <div class="col-md-4">
@@ -73,10 +71,6 @@
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <!-- Añadir más años según sea necesario -->
                     </select>
                 </div>
             </div>
@@ -92,64 +86,14 @@
                     <th>Título</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr data-especialidad="Software" data-idioma="Castellano" data-ano="2023">
-                    <td>Ingeniería del Software</td>
-                    <td>Castellano</td>
-                    <td>2023</td>
-                    <td>Memoria 1</td>
-                </tr>
-                <tr data-especialidad="Hardware" data-idioma="Inglés" data-ano="2022">
-                    <td>Ingeniería de Computadores</td>
-                    <td>Inglés</td>
-                    <td>2022</td>
-                    <td>Memoria 2</td>
-                </tr>
-                <tr data-especialidad="Computación" data-idioma="Euskera" data-ano="2021">
-                    <td>Computación</td>
-                    <td>Euskera</td>
-                    <td>2021</td>
-                    <td>Memoria 3</td>
-                </tr>
-                <!-- Añadir más filas según sea necesario -->
+            <tbody id="memorias-table">
+                <!-- Las filas se agregarán dinámicamente con JavaScript -->
             </tbody>
         </table>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Filtrar las memorias cuando se cambien los valores de los filtros
-        document.getElementById('filterForm').addEventListener('change', function () {
-            // Obtener los valores seleccionados
-            var especialidad = document.getElementById('especialidad').value.toLowerCase();
-            var idioma = document.getElementById('idioma').value.toLowerCase();
-            var ano = document.getElementById('ano').value;
-
-            // Obtener todas las filas de la tabla
-            var rows = document.querySelectorAll('#memoriasTable tbody tr');
-
-            rows.forEach(function (row) {
-                var rowEspecialidad = row.getAttribute('data-especialidad').toLowerCase();
-                var rowIdioma = row.getAttribute('data-idioma').toLowerCase();
-                var rowAno = row.getAttribute('data-ano');
-
-                // Verificar si la fila cumple con los filtros
-                if ((especialidad === '' || rowEspecialidad.includes(especialidad)) &&
-                    (idioma === '' || rowIdioma.includes(idioma)) &&
-                    (ano === '' || rowAno === ano)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-    </script>
-
-    <!--  <footer class="bg-dark text-white text-center py-3 mt-4">
-        <p>&copy; 2024 Universidad. Todos los derechos reservados.</p>
-    </footer>    -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="memorias.js"></script> <!-- Conexión con el archivo JS -->
 </body>
 
 </html>
