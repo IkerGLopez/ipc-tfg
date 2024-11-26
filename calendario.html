@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Universidad</a>
+            <a class="navbar-brand" href="#">TFG Planner</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,8 @@
         </div>
         <div id="calendar-container" class="mt-4"></div>
         <div class="legend text-center">
-            <p>Los días en <span style="color: red; font-weight: bold;">rojo</span> representan las fechas en las que se realizan las defensas de TFG.</p>
+            <p>Los días en <span style="color: red; font-weight: bold;">rojo</span> representan las fechas en las que se
+                realizan las defensas de TFG.</p>
         </div>
     </div>
 
@@ -57,23 +58,24 @@
     <script>
         const calendarData = {
             "2024": {
-                "September": [15, 16, 17],
-                "October": [10, 11, 12]
+                "November": [15, 16, 17],
+                //"October": [10, 11, 12]
             },
             "2025": {
                 "January": [14, 15, 16]
             }
         };
 
-        const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
         function generateCalendar(year, monthName) {
             const calendarContainer = document.getElementById('calendar-container');
-            calendarContainer.innerHTML = ''; 
+            calendarContainer.innerHTML = '';
 
             const monthIndex = new Date(`${monthName} 1, ${year}`).getMonth();
-            const firstDay = new Date(year, monthIndex, 1).getDay(); 
-            const totalDays = new Date(year, monthIndex + 1, 0).getDate(); 
+            const firstDay = new Date(year, monthIndex, 1).getDay();
+            const adjustedFirstDay = (firstDay + 6) % 7; // Ajusta para que el lunes sea el primer día
+            const totalDays = new Date(year, monthIndex + 1, 0).getDate();
 
             const title = document.createElement('h4');
             title.classList.add('text-center');
@@ -94,7 +96,7 @@
             const calendarGrid = document.createElement('div');
             calendarGrid.classList.add('calendar');
 
-            for (let i = 0; i < firstDay; i++) {
+            for (let i = 0; i < adjustedFirstDay; i++) {
                 const emptyDay = document.createElement('div');
                 emptyDay.classList.add('calendar-day', 'empty');
                 calendarGrid.appendChild(emptyDay);
@@ -119,6 +121,7 @@
             calendarContainer.appendChild(calendarGrid);
         }
 
+
         // Event listeners para los botones
         function toggleActiveButton(selectedYear) {
             const btn2024 = document.getElementById('btn2024');
@@ -139,15 +142,15 @@
 
         document.getElementById('btn2024').addEventListener('click', () => {
             toggleActiveButton('2024');
-            generateCalendar('2024', 'September'); 
+            generateCalendar('2024', 'November');
         });
 
         document.getElementById('btn2025').addEventListener('click', () => {
             toggleActiveButton('2025');
-            generateCalendar('2025', 'January'); 
+            generateCalendar('2025', 'January');
         });
         toggleActiveButton('2024');
-        generateCalendar('2024', 'September');
+        generateCalendar('2024', 'November');
     </script>
 </body>
 

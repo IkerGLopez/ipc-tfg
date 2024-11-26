@@ -29,28 +29,28 @@ const memorias = [
         "enlace": "https://addi.ehu.es/handle/10810/48806"
     },
     {
-        "titulo": "Memoria 5 - Software",
+        "titulo": "Memoria 5 - Ingeniería del Software",
         "especialidad": "Ingeniería del Software",
         "año": 2022,
         "idioma": "Castellano",
         "enlace": "https://addi.ehu.es/handle/10810/29090"
     },
     {
-        "titulo": "Memoria 6 - Software Euskera",
+        "titulo": "Memoria 6 - Ingeniería del Software Euskera",
         "especialidad": "Ingeniería del Software",
         "año": 2022,
         "idioma": "Euskera",
         "enlace": "https://addi.ehu.es/handle/10810/53311"
     },
     {
-        "titulo": "Memoria 7 - Hardware Euskera",
+        "titulo": "Memoria 7 - Ingeniería de Computadores Euskera",
         "especialidad": "Ingeniería de Computadores",
         "año": 2021,
         "idioma": "Euskera",
         "enlace": "https://addi.ehu.es/handle/10810/29094"
     },
     {
-        "titulo": "Memoria 8 - Hardware",
+        "titulo": "Memoria 8 - Ingeniería de Computadores",
         "especialidad": "Ingeniería de Computadores",
         "año": 2021,
         "idioma": "Castellano",
@@ -71,21 +71,21 @@ const memorias = [
         "enlace": "https://addi.ehu.es/handle/10810/48780"
     },
     {
-        "titulo": "Memoria 11 - Software",
+        "titulo": "Memoria 11 - Ingeniería del Software",
         "especialidad": "Ingeniería del Software",
         "año": 2022,
         "idioma": "Castellano",
         "enlace": "https://addi.ehu.es/handle/10810/29097"
     },
     {
-        "titulo": "Memoria 12 - Hardware",
+        "titulo": "Memoria 12 - Ingeniería de Computadores",
         "especialidad": "Ingeniería de Computadores",
         "año": 2021,
         "idioma": "Castellano",
         "enlace": "https://addi.ehu.es/handle/10810/58090"
     },
     {
-        "titulo": "Memoria 13 - Hardware Euskera",
+        "titulo": "Memoria 13 - Ingeniería de Computadores Euskera",
         "especialidad": "Ingeniería de Computadores",
         "año": 2021,
         "idioma": "Euskera",
