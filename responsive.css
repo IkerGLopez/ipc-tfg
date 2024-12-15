@@ -1,0 +1,121 @@
+/* Ajustes para pantallas grandes (escritorio) */
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+
+    .hero-section {
+        height: 200px;
+    }
+
+    .hero-section h1 {
+        font-size: 4rem;
+    }
+
+    .hero-section p {
+        font-size: 1.5rem;
+    }
+
+    .calendar-day {
+        height: 120px;
+        font-size: 16px;
+    }
+
+    .highlight {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .legend {
+        font-size: 18px;
+    }
+
+    .card img {
+        height: 250px;
+    }
+}
+
+/* Ajustes para pantallas medianas (tabletas) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-section {
+        height: 180px;
+    }
+
+    .hero-section h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.3rem;
+    }
+
+    .calendar-day {
+        height: 110px;
+        font-size: 15px;
+    }
+
+    .highlight {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+    }
+
+    .legend {
+        font-size: 17px;
+    }
+
+    .card img {
+        height: 220px;
+    }
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+    body {
+        padding-top: 56px;
+    }
+
+    .hero-section {
+        height: 150px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+
+    .calendar-day {
+        height: 90px;
+        font-size: 14px;
+    }
+
+    .highlight {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+    }
+
+    .legend {
+        font-size: 16px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+}
+
+/* Ajustes de la navbar en móviles */
+@media (max-width: 767px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-toggler {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
